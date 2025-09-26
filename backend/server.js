@@ -17,8 +17,12 @@ app.use("/tenants", require("./routes/tenantRoutes"));
 
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
+
+const PORT = 4000;
+
 mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("DB connected");
-  app.listen(process.env.PORT, () => console.log("Server running"));
+  // app.listen(process.env.PORT, () => console.log("Server running"));
+  app.listen(PORT, () => console.log("Server running"));
 });
 
